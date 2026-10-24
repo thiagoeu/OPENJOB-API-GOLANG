@@ -1,62 +1,80 @@
-# API de Vagas de Trabalho
+# ⚡ OpenJob API — High Performance Job Management
 
-## Descrição
+[![Go](https://img.shields.io/badge/Go-1.2x-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
+[![Gin](https://img.shields.io/badge/Gin-Web_Framework-008ECF?style=for-the-badge&logo=go&logoColor=white)](https://gin-gonic.com/)
+[![GORM](https://img.shields.io/badge/GORM-ORM-blue?style=for-the-badge)](https://gorm.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 
-GOstd é uma API desenvolvida em Go para gerenciar vagas de trabalho. O projeto foi criado para facilitar o cadastro, consulta e gerenciamento de vagas, permitindo que empresas publiquem oportunidades e candidatos encontrem posições relevantes.
+API RESTful concorrente e de alta performance desenvolvida em **Go (Golang)** para cadastro, consulta e gerenciamento de vagas de emprego. Construída com o framework **Gin** e persistência via **GORM**.
 
-## Funcionalidades
+---
 
-- **Cadastro de Vagas:** Permite que empresas criem e editem vagas.
-- **Consulta de Vagas:** Listagem e busca de vagas disponíveis.
-- **Filtros:** Pesquisa por palavras-chave, localização, e tipo de trabalho.
-- **API RESTful:** Endpoints bem definidos para integração com outros sistemas.
+## 🚀 Funcionalidades
 
-## Como Rodar o Projeto
+- **CRUD Completo de Oportunidades:** Cadastro, listagem, atualização e remoção de vagas.
+- **Roteamento Ultrarrápido:** Construído sobre o engine HTTP do Gin.
+- **Camada ORM Fluente:** Mapeamento de dados e migrações automáticas com GORM.
+- **Tratamento Estruturado de Erros:** Respostas padronizadas em JSON com validações de campos.
 
-1. **Clone o repositório:**
+---
 
-   ```bash
-   git clone https://github.com/thiagoeu/GOstd.git
-   ```
+## 🛠️ Stack Tecnológica
 
-2. **Entre no diretório:**
+- **Linguagem:** Go (Golang)
+- **Framework Web:** [Gin Web Framework](https://github.com/gin-gonic/gin)
+- **Persistência / ORM:** [GORM](https://gorm.io/)
+- **Database:** SQLite / PostgreSQL
+- **Validação de Schemas:** Gin Binding & Validation
 
-   ```bash
-   cd GOstd
-   ```
+---
 
-3. **Instale as dependências:**
+## 📦 Como Rodar o Projeto
 
-   ```bash
-   go mod tidy
-   ```
+### Pré-requisitos
+- [Go 1.20+](https://go.dev/dl/) instalado na máquina.
 
-4. **Execute a aplicação:**
+### Passo a Passo
 
-   ```bash
-   go run main.go
-   ```
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/thiagoeu/OPENJOB-API-GOLANG.git
+cd OPENJOB-API-GOLANG
 
-5. **Acesse a API:**
+# 2. Baixar dependências
+go mod tidy
 
-   A aplicação estará rodando em:
+# 3. Executar o servidor
+go run main.go
+```
 
-   ```
-   http://localhost:8080
-   ```
+A API estará disponível em: `http://localhost:8080`
 
-## Endpoints
+---
 
-- `GET /jobs` — Lista todas as vagas.
-- `POST /jobs` — Cria uma nova vaga.
-- `GET /jobs/{id}` — Detalhes de uma vaga específica.
-- `PUT /jobs/{id}` — Atualiza uma vaga existente.
-- `DELETE /jobs/{id}` — Remove uma vaga.
+## 🛣️ Endpoints da API
 
-## Contribuições
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/api/v1/jobs` | Retorna a listagem de todas as vagas cadastradas |
+| `GET` | `/api/v1/job?id={id}` | Detalhes de uma vaga específica |
+| `POST` | `/api/v1/job` | Cadastra uma nova vaga de trabalho |
+| `PUT` | `/api/v1/job?id={id}` | Atualiza dados de uma vaga existente |
+| `DELETE` | `/api/v1/job?id={id}` | Remove uma vaga do sistema |
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+### Exemplo de Payload (`POST /api/v1/job`)
 
-## Licença
+```json
+{
+  "role": "Senior Go Engineer",
+  "company": "Tech Corp",
+  "location": "Remoto (Brasil)",
+  "remote": true,
+  "link": "https://company.com/careers/go-engineer",
+  "salary": 16000
+}
+```
 
-Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+---
+
+## 📄 Licença
+Distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
